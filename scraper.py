@@ -1,17 +1,15 @@
-from google_play_scraper improt reviews, Sort
+from google_play_scraper import reviews, Sort
 import csv
-
-PATH = 'reviews.csv'
 
 scraped_data, token = reviews(
     'com.pinterest',
     lang='id',
     country='id',
     sort=Sort.MOST_RELEVANT,
-    count=15000,
+    count=18000,
 )
 
-with open(PATH, mode='w', newline='', encoding='utf-8') as file:
+with open('reviews.csv', mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
     writer.writerow(['Review'])
     for review in scraped_data:
